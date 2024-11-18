@@ -13,9 +13,9 @@ export default function Index() {
       <div className="flex flex-col items-center gap-16">
         <header className="flex flex-col items-center gap-9">
           <h1 className="leading text-2xl font-bold text-gray-800 dark:text-gray-100">
-            Welcome to <span className="sr-only">Remix</span>
+            Welcome to <span className="sr-only bg-green">Remix</span>
           </h1>
-          <div className="h-[144px] w-[434px]">
+          <div className="h-[144px] w-[434px] ">
             <img
               src="/logo-light.png"
               alt="Remix"
@@ -29,7 +29,7 @@ export default function Index() {
           </div>
         </header>
         <nav className="flex flex-col items-center justify-center gap-4 rounded-3xl border border-gray-200 p-6 dark:border-gray-700">
-          <p className="leading-6 text-gray-700 dark:text-gray-200">
+          <p className="leading-6 text-gray-700 dark:text-green-600">
             What&apos;s next?
           </p>
           <ul>
