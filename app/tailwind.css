@@ -108,6 +108,10 @@ body {
   @apply flex items-center justify-center;
 }
 
+.active-agrotab {
+  @apply border-solid border-2 border-green-100 rounded-lg;
+}
+
 .dot {
   @apply border-solid border-2 border-blue-100  w-2 h-2 rounded-full cursor-pointer;
 }
