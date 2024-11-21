@@ -1,29 +1,31 @@
+import { Link } from "@remix-run/react";
+
 export const SideBar = () => {
   return (
     <ul className="flex flex-col bg-white px-4 py-2 gap-3 rounded-lg transition-all shadow-lg h-fit">
       <li className="cursor-pointer text-sm hover:text-amber-300 transition text-gray-700">
-        Agro products
+        <Link to="/agroproducts">Agro products</Link>
       </li>
       <li className="cursor-pointer text-sm hover:text-amber-300 transition text-gray-700">
-        Farm Inputs
+        <Link to="/farm-inputs">Farm Inputs</Link>
       </li>
       <li className="cursor-pointer text-sm hover:text-amber-300 transition text-gray-700">
-        Herbal medicine
+        <Link to="/herbal-medicine">Herbal medicine</Link>
       </li>
       <li className="cursor-pointer text-sm hover:text-amber-300 transition text-gray-700">
-        Veterinary Doctors
+        <Link to="/veterinary-doctors">Veterinary Doctors</Link>
       </li>
       <li className="cursor-pointer text-sm hover:text-amber-300 transition text-gray-700">
-        Institutions
+        <Link to="/institutions">Institutions</Link>
       </li>
       <li className="cursor-pointer text-sm hover:text-amber-300 transition text-gray-700">
-        Jobs
+        <Link to="/jobs">Jobs</Link>
       </li>
       <li className="cursor-pointer text-sm hover:text-amber-300 transition text-gray-700">
-        Chat
+        <Link to="/chat">Chat</Link>
       </li>
       <li className="cursor-pointer text-sm hover:text-amber-300 transition text-gray-700">
-        About
+        <Link to="/about">About</Link>
       </li>
     </ul>
   );

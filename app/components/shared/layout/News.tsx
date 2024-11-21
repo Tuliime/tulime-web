@@ -33,7 +33,7 @@ export const News = () => {
   //   object-position: top center;
 
   return (
-    <div className=" w-full  flex flex-col justify-center align-middle h-70">
+    <div className=" w-full flex flex-col justify-center align-middle h-70">
       <img
         src={activeImage}
         alt="AAPG lifestyle"

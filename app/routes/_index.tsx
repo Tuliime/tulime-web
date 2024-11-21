@@ -15,7 +15,7 @@ export default function Index() {
   return (
     // <div className="flex h-screen items-center justify-center">
     <div className=" flex flex-col min-h-screen">
-      <div className="flex gap-10 px-20 mt-20 mb-10">
+      <div className="flex gap-10 px-20 mb-10">
         <SideBar />
         <News />
       </div>

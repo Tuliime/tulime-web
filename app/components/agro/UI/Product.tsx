@@ -10,6 +10,7 @@ interface ProductProps {
   image: string;
   className: string;
 }
+
 export const Product: React.FC<ProductProps> = ({
   id,
   name,
