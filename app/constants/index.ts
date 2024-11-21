@@ -1,4 +1,4 @@
-export const crop = "/rice.jpg";
+export const crop = "/rice.png";
 export const crop1 = "/crop1.jpg";
 export const crop2 = "/crop2.jpg";
 export const crop3 = "/crop3.jpg";

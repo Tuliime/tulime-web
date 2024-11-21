@@ -95,11 +95,26 @@ body {
   --image-opacity: 100%;
 }
 
+/* .dot {
+  border: 1px solid var(--main-color-1);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  z-index: 3;
+  cursor: pointer; */
+
 /* ===== ALIGNMENTS */
 .flex-center {
   @apply flex items-center justify-center;
 }
 
+.dot {
+  @apply border-solid border-2 border-blue-100  w-2 h-2 rounded-full cursor-pointer;
+}
+
+.active {
+  @apply bg-blue-100;
+}
 .flex-between {
   @apply flex items-center justify-between;
 }
