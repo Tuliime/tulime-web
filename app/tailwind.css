@@ -104,14 +104,42 @@ body {
   cursor: pointer; */
 
 /* ===== ALIGNMENTS */
+.transparent-bg-color {
+  @apply bg-[rgba(73,80,87,0.3)];
+}
+.transparent-active-bg-color {
+  @apply bg-[rgba(55,178,77,0.5)];
+}
+
+.transparent-text-color {
+  @apply text-[#343a40];
+}
+
+.transparent-active-text-color {
+  @apply text-[#099268];
+}
+
+.btn-primary-color {
+  @apply bg-[#37b24d];
+}
+
+.text-color {
+  @apply text-[#343a40];
+}
+
 .flex-center {
   @apply flex items-center justify-center;
+}
+
+.agrotab {
+  @apply px-4 sm:px-4 py-1 cursor-pointer transparent-bg-color rounded-[20px] transparent-text-color;
 }
 
 .active-agrotab {
   /* @apply border-solid border-2 border-green-100 rounded-lg; */
   /* @apply bg-blue-100 text-white rounded-lg; */
-  @apply bg-green-100 text-white rounded-lg;
+  /* @apply bg-green-500 text-white rounded-[20px] transparent-active-bg-color; */
+  @apply transparent-active-text-color rounded-[20px] transparent-active-bg-color;
 }
 
 .dot {

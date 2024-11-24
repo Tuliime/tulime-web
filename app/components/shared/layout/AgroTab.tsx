@@ -10,16 +10,22 @@ export const AgroTab = () => {
       <div className=" flex-between w-[94%] sm:w-[70%]">
         <p>Agro</p>
         <div className="flex gap-3 sm:gap-8 justify-center items-center">
-          <span
-            className={` px-2 sm:px-3 py-1 cursor-pointer ${
+          {/* <span
+            className={` px-2 sm:px-3 py-1 cursor-pointer bg-gray-500 rounded-[20px] text-gray-200 ${
               activeTab === "crops" && "active-agrotab"
             }`}
             onClick={() => setActiveTab("crops")}
           >
             Crops
+          </span> */}
+          <span
+            className={`agrotab ${activeTab === "crops" && "active-agrotab"}`}
+            onClick={() => setActiveTab("crops")}
+          >
+            Crops
           </span>
           <span
-            className={`px-2 sm:px-3 py-1 cursor-pointer ${
+            className={`agrotab ${
               activeTab === "livestock" && "active-agrotab"
             }`}
             onClick={() => setActiveTab("livestock")}
@@ -27,17 +33,13 @@ export const AgroTab = () => {
             Livestock
           </span>
           <span
-            className={`px-2 sm:px-3 py-1 cursor-pointer ${
-              activeTab === "fish" && "active-agrotab"
-            }`}
+            className={`agrotab ${activeTab === "fish" && "active-agrotab"}`}
             onClick={() => setActiveTab("fish")}
           >
             Fish
           </span>
           <span
-            className={`px-2 sm:px-3 py-1 cursor-pointer ${
-              activeTab === "poultry" && "active-agrotab"
-            }`}
+            className={`agrotab ${activeTab === "poultry" && "active-agrotab"}`}
             onClick={() => setActiveTab("poultry")}
           >
             Poultry
