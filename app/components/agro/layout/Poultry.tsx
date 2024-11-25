@@ -7,7 +7,7 @@ import { poultryProducts } from "../../../data/poultryProducts";
 
 export const Poultry = () => {
   return (
-    <div className=" flex flex-wrap gap-3 mt-8 px-12 mb-8">
+    <div className=" grid grid-cols-4 gap-3 mt-8 px-12 mb-8">
       {/* <p>Crops</p>
       <img src="/icons/heart.png" alt="" /> */}
       {poultryProducts.map((product, index) => (

@@ -7,7 +7,7 @@ export const AgroTab = () => {
 
   return (
     <div className="flex mt-20 px-8 justify-center items-center">
-      <div className=" flex-between w-[94%] sm:w-[70%]">
+      <div className=" flex-between w-[94%] sm:w-[90%]">
         <p>Agro</p>
         <div className="flex gap-3 sm:gap-8 justify-center items-center">
           {/* <span

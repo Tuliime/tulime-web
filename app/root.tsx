@@ -9,6 +9,7 @@ import type { LinksFunction } from "@remix-run/node";
 
 import "./tailwind.css";
 import { Header } from "./components/shared/layout/Header";
+import { MobileSideBar } from "./components/shared/layout/MobileSideBar";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -36,7 +37,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <header>
           <Header />
         </header>
-        <div className=" mt-20">{children}</div>
+        <MobileSideBar />
+
+        <div className="w-fit mt-20">{children}</div>
 
         <ScrollRestoration />
         <Scripts />

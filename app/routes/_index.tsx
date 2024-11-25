@@ -1,6 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Footer } from "~/components/shared/layout/Footer";
 import { MainContent } from "~/components/shared/layout/MainContent";
+import { MobileSideBar } from "~/components/shared/layout/MobileSideBar";
 import { News } from "~/components/shared/layout/News";
 import { SideBar } from "~/components/shared/layout/SideBar";
 
@@ -14,8 +15,8 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     // <div className="flex h-screen items-center justify-center">
-    <div className=" flex flex-col min-h-screen">
-      <div className="flex gap-10 px-20 mb-10">
+    <div className="w-full flex flex-col min-h-screen">
+      <div className=" w-full md:flex md:gap-4 xl:px-20 lg:px-16 md:px-8 sm:px-8 mb-10 ">
         <SideBar />
         <News />
       </div>
