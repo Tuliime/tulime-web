@@ -1,5 +1,7 @@
 import React from "react";
 import { crop } from "~/constants";
+// import { addCommasToNumber } from "~/utils/addCommasToNumber";
+import { addCommasToNumber } from "~/utils/addCommasToNumber";
 
 interface ProductProps {
   id?: string;
@@ -31,7 +33,7 @@ export const Product: React.FC<ProductProps> = ({
       <div className=" py-1 px-2">
         <p className=" text-gray-700">{name}</p>
         <p className=" text-green-100 font-medium rounded-lg">
-          {currency} {price}
+          {currency} {addCommasToNumber(price)}
         </p>
       </div>
     </div>
