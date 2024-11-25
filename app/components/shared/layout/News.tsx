@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 
 export const News = () => {
-  const [activeImage, setActiveImage] = useState("group-photo.jpg");
+  const [activeImage, setActiveImage] = useState("news/new1.webp");
 
   const images = [
-    "group-photo.jpg",
-    "mission.jpg",
-    "ladies-group-photo.jpg",
-    "ladies-soft-skills.jpg",
-    "women-in-energy.jpg",
-    "sports3.jpg",
-    "ladiesCapacity.jpg",
+    "news/new2.webp",
+    "news/new3.jpg",
+    "news/new4.jpg",
+    "news/new5.webp",
+    "news/new6.jpg",
+    "news/new7.jpg",
+    "news/new8.webp",
+    "news/new9.jpg",
+    "news/new11.jpg",
   ];
 
   const handleDotClick = (card: string) => {
@@ -33,11 +35,11 @@ export const News = () => {
   //   object-position: top center;
 
   return (
-    <div className="w-full sm:w-full flex flex-col justify-center align-middle h-70 sm:h-40 sm:mt-[4.4rem]">
+    <div className="w-full sm:w-full flex flex-col justify-center align-middle h-70 sm:h-40 sm:mt-[4.7rem] ">
       <img
         src={activeImage}
-        alt="AAPG lifestyle"
-        className=" h-60 object-cover object-center"
+        alt=""
+        className=" h-60 object-cover object-center rounded-lg"
       />
       {/* <a
         href="#"
@@ -48,7 +50,13 @@ export const News = () => {
 
       <div className="flex justify-center items-center ">
         <div className=" h-16 flex py-3 px-3 gap-3 min-h-4">
-          <span
+          {images.map((image, index) => (
+            <span
+              className={`dot  ${activeImage === image && "active"}`}
+              onClick={() => handleDotClick(image)}
+            ></span>
+          ))}
+          {/* <span
             className={`dot  ${activeImage === "group-photo.jpg" && "active"}`}
             onClick={() => handleDotClick("group-photo.jpg")}
           ></span>
@@ -85,7 +93,7 @@ export const News = () => {
               activeImage === "ladiesCapacity.jpg" && "active"
             }`}
             onClick={() => handleDotClick("ladiesCapacity.jpg")}
-          ></span>
+          ></span> */}
         </div>
       </div>
     </div>

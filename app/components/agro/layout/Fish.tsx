@@ -13,7 +13,7 @@ import { fishProducts } from "../../../data/fishProducts";
 
 export const Fish = () => {
   return (
-    <div className=" grid grid-cols-4 gap-3 mt-8 px-12 mb-8">
+    <div className=" grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-3 mt-8 mb-8">
       {/* <p>Crops</p>
       <img src="/icons/heart.png" alt="" /> */}
       {fishProducts.map((product, index) => (

@@ -26,7 +26,7 @@ export const Product: React.FC<ProductProps> = ({
         src={image}
         alt=""
         // className=" w-auto h-60 object-cover object-center"
-        className=" w-auto h-60"
+        className=" aspect-square"
       />
       <div className=" py-1 px-2">
         <p className=" text-gray-700">{name}</p>
