@@ -4,7 +4,7 @@ export const Footer = () => {
   return (
     <footer className="flex flex-col px-20 py-10 mt-auto bg-[#495057]">
       <div className=" flex justify-between ">
-        <div className=" text-gray-400 ">TULIIME</div>
+        <div className=" text-gray-400 ">Tulime</div>
         <div className="flex gap-8 text-gray-400">
           <div>
             <p>News</p>

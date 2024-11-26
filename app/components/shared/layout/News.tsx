@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export const News = () => {
-  const [activeImage, setActiveImage] = useState("news/new1.webp");
+  const [activeImage, setActiveImage] = useState("news/new2.webp");
 
   const images = [
     "news/new2.webp",

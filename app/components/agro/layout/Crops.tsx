@@ -1,20 +1,14 @@
-import React from "react";
-import { HiHeart } from "react-icons/hi";
-// import { heart } from "../../../constants/icons/heart";
-import heart from "../../../constants/icons";
 import { Product } from "../UI/Product";
-import { agroProducts } from "../../../data/agroProducts";
+import { getCropProducts } from "~/API/crops";
 
 export const Crops = () => {
+  console.log("Crops data", getCropProducts());
+  const data = getCropProducts();
   return (
-    // <div className=" flex flex-wrap gap-3 mt-8 mb-8 bg-lime-700">
     <div className=" grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-3 mt-8 mb-8">
-      {/* <p>Crops</p>
-      <img src="/icons/heart.png" alt="" /> */}
-      {agroProducts.map((product) => (
+      {data.map((product) => (
         <Product
           key={product.id}
-          id={product.id}
           name={product.name}
           category={product.category}
           price={product.price}
@@ -22,7 +16,6 @@ export const Crops = () => {
           image={product.image}
         />
       ))}
-      {/* <img src={heart} alt="" /> */}
     </div>
   );
 };

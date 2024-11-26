@@ -39,6 +39,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </header>
         <MobileSideBar />
 
+        {/* <div className="w-fit mt-20"> */}
         <div className="w-fit mt-20">{children}</div>
 
         <ScrollRestoration />

@@ -12,7 +12,6 @@ const About: React.FC = () => {
   console.log("data: ", data);
 
   return <div>{data.name}</div>;
-  // return <div>About</div>;
 };
 
 export default About;

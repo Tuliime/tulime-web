@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import { IoIosArrowForward } from "react-icons/io";
+import { ArrowIcon } from "./ArrowIcon";
 
 export const SideBar = () => {
   return (
@@ -24,7 +24,7 @@ export const SideBar = () => {
             </svg>
             <span className="font-semibold">Agro Products</span>
           </div>
-          <IoIosArrowForward />
+          <ArrowIcon />
         </Link>
       </li>
       <li className="cursor-pointer text-sm hover:text-blue-800 transition text-gray-800">
@@ -47,7 +47,7 @@ export const SideBar = () => {
             </svg>
             <span className="font-semibold">Farm Inputs</span>{" "}
           </div>
-          <IoIosArrowForward />
+          <ArrowIcon />
         </Link>
       </li>
       <li className="cursor-pointer text-sm hover:text-blue-800 transition text-gray-800">
@@ -74,7 +74,7 @@ export const SideBar = () => {
             </svg>
             <span className="font-semibold">Farm Managers</span>
           </div>
-          <IoIosArrowForward />
+          <ArrowIcon />
         </Link>
       </li>
       <li className="cursor-pointer text-sm hover:text-blue-800 transition text-gray-800">
@@ -136,7 +136,7 @@ export const SideBar = () => {
             </svg>
             <span className="font-semibold">Veterinary Doctors</span>
           </div>
-          <IoIosArrowForward />
+          <ArrowIcon />
         </Link>
       </li>
       <li className="cursor-pointer text-sm hover:text-blue-800 transition text-gray-800">
@@ -158,7 +158,7 @@ export const SideBar = () => {
             </svg>
             <span className="font-semibold">Institutions</span>
           </div>
-          <IoIosArrowForward />
+          <ArrowIcon />
         </Link>
       </li>
       <li className="cursor-pointer text-sm hover:text-blue-800 transition text-gray-800">
@@ -180,7 +180,7 @@ export const SideBar = () => {
             </svg>
             <span className="font-semibold">News</span>
           </div>
-          <IoIosArrowForward />
+          <ArrowIcon />
         </Link>
       </li>
       {/* <li className="cursor-pointer text-sm hover:text-blue-800 transition text-gray-800">
