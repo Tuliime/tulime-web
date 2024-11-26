@@ -12,10 +12,12 @@ export const AgroSectionHome: React.FC = () => {
   return (
     <>
       <AgroTab />
-      {activeTab === "crops" && <Crops />}
-      {activeTab === "fish" && <Fish />}
-      {activeTab === "livestock" && <Livestock />}
-      {activeTab === "poultry" && <Poultry />}
+      <div className=" lg:px-12 md:px-8 sm:px-6">
+        {activeTab === "crops" && <Crops />}
+        {activeTab === "fish" && <Fish />}
+        {activeTab === "livestock" && <Livestock />}
+        {activeTab === "poultry" && <Poultry />}
+      </div>
     </>
   );
 };

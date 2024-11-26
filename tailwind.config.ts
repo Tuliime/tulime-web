@@ -4,6 +4,25 @@ export default {
   content: ["./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      screens: {
+        sm: "0px",
+        // => @media (min-width: 576px) { ... }
+
+        // md: "960px",
+        md: "598px",
+        // => @media (min-width: 960px) { ... }
+
+        // lg: "1440px",
+        lg: "877px",
+        // => @media (min-width: 1440px) { ... }
+
+        // xl: "1280px",
+        xl: "930px",
+        // => @media (min-width: 1280px) { ... }
+
+        "2xl": "1536px",
+        // => @media (min-width: 1536px) { ... }
+      },
       colors: {
         green: {
           100: "#37b24d",
