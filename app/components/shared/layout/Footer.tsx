@@ -2,7 +2,7 @@ import { Button } from "../UI/Button";
 
 export const Footer = () => {
   return (
-    <footer className="flex flex-col px-20 py-10 mt-auto bg-[#495057]">
+    <footer className="flex flex-col px-20 py-10 mt-auto bg-[#495057] w-[100%]">
       <div className=" flex justify-between ">
         <div className=" text-gray-400 ">Tulime</div>
         <div className="flex gap-8 text-gray-400">
