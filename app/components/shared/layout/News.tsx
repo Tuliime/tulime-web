@@ -54,6 +54,7 @@ export const News = () => {
             <span
               className={`dot  ${activeImage === image && "active"}`}
               onClick={() => handleDotClick(image)}
+              key={index}
             ></span>
           ))}
           {/* <span

@@ -22,7 +22,7 @@ export const AgroTab = () => {
     });
   };
   return (
-    <div className="flex mt-20 px-2 justify-center items-center">
+    <div className="flex mt-20 px-2 justify-center items-centerw-full">
       <div className="flex-between w-[94%] sm:w-[90%]">
         <p className="sm:hidden md:block">Agro Products</p>
         <div className="flex sm:gap-4 md:gap-4 justify-center items-center">
