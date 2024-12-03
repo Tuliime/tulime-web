@@ -10,7 +10,10 @@ export const Header = () => {
   console.log("IS SIDE BAR OPEN", isSideBarOpen);
   return (
     // <div className=" bg-lime-700  text-neutral-50 py-3 px-6 flex-between mb-4">
-    <div className=" bg-green-100 text-neutral-50 py-3 md:px-4 sm:px-2 flex-between mb-4 fixed w-full top-0">
+    <div
+      className="bg-green-100 text-neutral-50 py-3 md:px-4 
+       sm:px-2 flex-between"
+    >
       <span className=" cursor-pointer">
         <Link to="/" className=" md:block sm:hidden">
           Tulime
@@ -30,7 +33,8 @@ export const Header = () => {
         <input
           type="text"
           placeholder="Search Tuliime"
-          className="rounded-md px-4 py-2  text-zinc-700 outline-none text-sm placeholder:text-gray-500"
+          className="rounded-md px-4 py-2  text-zinc-700 outline-none
+           text-sm placeholder:text-gray-500"
         />
         <span className=" absolute top-[0.7rem] right-3 text-gray-500">
           <svg viewBox="0 0 24 24" fill="currentColor" height="1em" width="1em">

@@ -7,7 +7,10 @@ export const MainContent = () => {
   const data = getCropProducts();
 
   return (
-    <div className="grid gap-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mb-10 mt-20 lg:px-16 px md:px-12 sm:px-12">
+    <div
+      className="grid gap-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2
+        mb-10 mt-20 lg:px-16 px md:px-12 sm:px-12"
+    >
       {data.map((product, index) => (
         <>
           <div

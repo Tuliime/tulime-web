@@ -34,13 +34,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="bg-slate-100">
-        <header>
+        {/* <header>
           <Header />
         </header>
-        <MobileSideBar />
+        <MobileSideBar />  */}
 
         {/* <div className="w-fit mt-20"> */}
-        <div className="w-fit mt-20">{children}</div>
+        {/* <div className="w-fit mt-20">{children}</div> */}
+        <div className="">{children}</div>
 
         <ScrollRestoration />
         <Scripts />
