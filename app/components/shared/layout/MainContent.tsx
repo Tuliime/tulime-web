@@ -20,6 +20,7 @@ export const MainContent = () => {
             <img src={product.image} alt="" className=" aspect-[4/3]" />
             <div className=" py-1 px-2">
               <p className=" text-gray-700">{product.name}</p>
+              <p className=" opacity-40 text-gray-200 z-0">{product.name}</p>
               <p className=" text-green-100 font-medium">
                 {product.currency} {product.price}
               </p>

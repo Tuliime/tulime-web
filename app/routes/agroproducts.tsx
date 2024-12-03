@@ -1,12 +1,15 @@
 import React from "react";
 import { AgroSectionHome } from "~/components/agro/layout/AgroSectionHome";
 import { agroProducts } from "~/data/agroProducts";
+import { AppLayout } from "~/components/shared/layout/AppLayout";
 
 const Agroproducts = () => {
   return (
-    <div className=" w-full">
-      <AgroSectionHome />
-    </div>
+    <AppLayout>
+      <div className=" w-full">
+        <AgroSectionHome />
+      </div>
+    </AppLayout>
   );
 };
 
