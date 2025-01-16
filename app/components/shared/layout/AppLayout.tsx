@@ -13,7 +13,7 @@ export const AppLayout: React.FC<AppLayoutProps> = (props) => {
         <Header />
       </header>
       {/* <SideBar/> */}
-      <main className="mt-20 w-full">{props.children}</main>
+      <main className=" mt-28 w-full">{props.children}</main>
     </div>
   );
 };

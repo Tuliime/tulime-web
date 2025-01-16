@@ -32,7 +32,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="flex flex-col gap-1 text-gray-400">
-          <p>Stay in the know</p>
+          <p>Keep updated</p>
           <p>Subscribe to our news letter</p>
           <div className=" flex  items-center gap-2">
             <svg

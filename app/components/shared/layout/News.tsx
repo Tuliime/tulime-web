@@ -40,10 +40,21 @@ export const News = () => {
       // align-middle h-70 sm:h-40 sm:mt-[4.7rem] "
       className="w-full mt-[2px]"
     >
+      <div className=" mb-4">
+        <h1>Education and Support</h1>
+        <div className=" flex gap-8">
+          <p className="text-sm text-blue-900 cursor-pointer border-b-2 border-blue-900">
+            News
+          </p>
+          <p className="text-sm cursor-pointer">GOU</p>
+          <p className="text-sm cursor-pointer">Conferences</p>
+          <p className="text-sm cursor-pointer">Research</p>
+        </div>
+      </div>
       <img
         src={activeImage}
         alt=""
-        className="w-full h-60 object-cover object-center rounded-lg"
+        className="w-full h-44 object-cover object-center rounded-lg"
       />
       {/* <a
         href="#"

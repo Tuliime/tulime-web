@@ -8,10 +8,11 @@ export const Header = () => {
   const openSideBar = useSidebarStore((state) => state.openSidebar);
   const closeSideBar = useSidebarStore((state) => state.closeSidebar);
   console.log("IS SIDE BAR OPEN", isSideBarOpen);
+
   return (
     // <div className=" bg-lime-700  text-neutral-50 py-3 px-6 flex-between mb-4">
     <div
-      className="bg-green-100 text-neutral-50 py-3 md:px-4 
+      className="bg-green-100 text-neutral-50 py-3 md:px-4  
        sm:px-2 flex-between"
     >
       <span className=" cursor-pointer">
@@ -47,7 +48,7 @@ export const Header = () => {
           en
           {/* <DropdownMenu /> */}
         </span>
-        <span className=" bg-yellow-500 px-4 py-1 rounded-[8px] hover:bg-yellow-400 transition">
+        <span className=" bg-yellow-500 px-4 py-1 rounded-[8px] hover:bg-yellow-400 transition text-sm">
           Sign in
         </span>
       </div>

@@ -3,7 +3,7 @@ import { ArrowIcon } from "./ArrowIcon";
 
 export const SideBar = () => {
   return (
-    <ul className="md:flex flex-col bg-white px-3 py-4 lg:gap-4 md:gap-2 rounded-lg transition-all shadow-lg  w-[28%]  sm:hidden">
+    <ul className="md:flex flex-col bg-white px-3 py-4 lg:gap-5 md:gap-2 rounded-lg transition-all shadow-lg  w-[28%]  sm:hidden">
       <li className="cursor-pointer text-sm hover:text-blue-800 transition text-gray-800">
         <Link
           to="/agroproducts"
