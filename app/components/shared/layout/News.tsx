@@ -1,7 +1,22 @@
 import { useEffect, useState } from "react";
+import { ArrowIcon } from "./ArrowIcon";
 
 export const News = () => {
   const [activeImage, setActiveImage] = useState("news/new2.webp");
+
+  const prevImgHandler = () => {
+    const currentIndex = images.indexOf(activeImage);
+    const prevIndex = (currentIndex - 1) % images.length;
+    if (currentIndex > 0) {
+      setActiveImage(images[prevIndex]);
+    }
+  };
+
+  const nextImgHandler = () => {
+    const currentIndex = images.indexOf(activeImage);
+    const nextIndex = (currentIndex + 1) % images.length;
+    setActiveImage(images[nextIndex]);
+  };
 
   const images = [
     "news/new2.webp",
@@ -63,8 +78,12 @@ export const News = () => {
         Learn more...
       </a> */}
 
-      <div className="flex justify-center items-center">
-        <div className="h-16s flex py-3 px-3 gap-3 min-h-4s">
+      <div className="flex justify-between items-center">
+        <ArrowIcon
+          className=" text-blue-100 rotate-180 cursor-pointer"
+          onClick={prevImgHandler}
+        />
+        <div className="h-16s flex  py-3 px-3 gap-3 min-h-4s">
           {images.map((image, index) => (
             <span
               className={`dot  ${activeImage === image && "active"}`}
@@ -73,6 +92,10 @@ export const News = () => {
             ></span>
           ))}
         </div>
+        <ArrowIcon
+          className=" text-blue-100 cursor-pointer"
+          onClick={nextImgHandler}
+        />
       </div>
     </div>
   );

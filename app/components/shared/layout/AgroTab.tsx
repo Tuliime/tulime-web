@@ -21,9 +21,10 @@ export const AgroTab = () => {
       preventScrollReset: true,
     });
   };
+
   return (
-    <div className="flex mt-20 px-2 justify-center items-centerw-full">
-      <div className="flex-between w-[94%] sm:w-[90%]">
+    <div className="flex mt-20 px-0 justify-center items-center w-full">
+      <div className="flex-between w-[94%] sm:w-[90%] text-sm">
         <p className="sm:hidden md:block">Agro Products</p>
         <div className="flex sm:gap-4 md:gap-4 justify-center items-center">
           <span

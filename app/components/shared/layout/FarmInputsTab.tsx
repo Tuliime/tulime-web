@@ -23,8 +23,9 @@ export const FarmInputsTab = () => {
       preventScrollReset: true,
     });
   };
+
   return (
-    <div className="flex mt-20 px-2 justify-center items-center">
+    <div className="flex mt-20 px-5 justify-center items-center text-sm">
       <div className="flex-between md:w-[94%] sm:w-[90%]">
         <p className="sm:hidden md:block">Farm Inputs</p>
         <div className="flex sm:gap-4 md:gap-4 justify-center items-center">

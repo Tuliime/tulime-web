@@ -23,7 +23,9 @@ export const Product: React.FC<ProductProps> = ({
   className,
 }) => {
   return (
-    <div className={`${className} bg-white shadow-md w-[100%] h-70 rounded-lg`}>
+    <div
+      className={`${className} bg-white shadow-md w-[100%] h-70 rounded-lg text-sm`}
+    >
       <img
         src={image}
         alt=""

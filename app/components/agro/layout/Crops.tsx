@@ -21,7 +21,7 @@ export const Crops = () => {
   //   data.every((product) => product.image && product.image.length > 0);
 
   return (
-    <div className=" grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-3 mt-8 mb-8 w-[100%]">
+    <div className=" grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-3 mt-8 mb-8 w-[100%] ">
       {data.map((product) => (
         <Product
           key={product.id}

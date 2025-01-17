@@ -3,8 +3,17 @@ import { Crops } from "~/components/agro/layout/Crops";
 import { crop } from "~/constants";
 import { getCropProducts } from "~/API/crops";
 import { ExploreMore } from "../UI/ExploreMore";
+import { json, LoaderFunctionArgs } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+
+// export async function loader({}: LoaderFunctionArgs) {
+//   const url = fetch("", { headers: { accept: "application/json" } });
+//   return json((await url).json());
+// }
 
 export const MainContent = () => {
+  // const newData = useLoaderData();
+  // console.log("new Data", newData);
   const data = getCropProducts();
 
   return (

@@ -13,9 +13,10 @@ export const ExploreMore: React.FC<SeeMoreProps> = ({
   link,
 }) => {
   return (
-    <div className={`${className} flex-between mt-10`}>
+    <div className={`${className} flex-between mt-10 w-[100%]`}>
       <p className="text-sm">{children}</p>
       <Link
+        prefetch="intent"
         to={link}
         className=" text-sm text-blue-100 flex justify-center items-center gap-4"
       >

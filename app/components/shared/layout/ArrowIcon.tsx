@@ -1,6 +1,11 @@
 import React from "react";
 
-export const ArrowIcon = () => {
+interface IconProps {
+  className?: string;
+  onClick?: () => void;
+}
+
+export const ArrowIcon = ({ className, onClick }: IconProps) => {
   return (
     <span>
       <svg
@@ -8,6 +13,8 @@ export const ArrowIcon = () => {
         width="1em"
         height="1em"
         viewBox="0 0 16 16"
+        className={className}
+        onClick={onClick}
       >
         <path
           fill="currentColor"

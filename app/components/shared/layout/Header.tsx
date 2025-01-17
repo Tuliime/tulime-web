@@ -48,9 +48,11 @@ export const Header = () => {
           en
           {/* <DropdownMenu /> */}
         </span>
-        <span className=" bg-yellow-500 px-4 py-1 rounded-[8px] hover:bg-yellow-400 transition text-sm">
-          Sign in
-        </span>
+        <Link to="/login">
+          <span className=" bg-yellow-500 px-4 py-2 rounded-[8px] hover:bg-yellow-400 transition text-sm">
+            Sign in
+          </span>
+        </Link>
       </div>
     </div>
   );
