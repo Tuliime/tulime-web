@@ -5,7 +5,7 @@ import { AppLayout } from "~/components/shared/layout/AppLayout";
 const Reset = () => {
   return (
     <AppLayout>
-      <div className=" flex flex-col gap-4 justify-center items-center sm:mt-20 lg:mt-32 text-gray-700 text-sm">
+      <div className=" flex flex-col gap-4 justify-center items-center sm:mt-20 lg:mt-28 text-gray-700 text-sm">
         <p>Reset Your Account Password</p>
         <form className=" flex flex-col gap-4 bg-white py-5 px-5 rounded-sm shadow-md">
           <p className=" text-center text-[0.8rem] mb-2">

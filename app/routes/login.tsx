@@ -10,7 +10,7 @@ const login = () => {
   };
   return (
     <AppLayout>
-      <div className=" flex flex-col gap-4 justify-center items-center sm:mt-20 lg:mt-32 text-gray-700 text-sm">
+      <div className=" flex flex-col gap-4 justify-center items-center sm:mt-20 lg:mt-28 text-gray-700 text-sm">
         <p>Log Into Your Account</p>
         <form className=" flex flex-col gap-4 bg-white py-5 px-5 rounded-sm shadow-md text-[0.8rem]">
           <div className="flex flex-col gap-1">
@@ -60,15 +60,18 @@ const login = () => {
         <div className=" text-[0.7rem] flex flex-col text-blue-100 justify-center items-center">
           <p>
             Forgot Password?{" "}
-            {/* <Link to="/reset" className=" underline cursor-pointer">
+            <Link to="/reset" className="underline cursor-pointer">
               Reset
+            </Link>
+            {/* <Link to="/reset-password" className=" underline cursor-pointer">
+              Password Reset
             </Link> */}
-            <Link
+            {/* <Link
               to="/verify-password-code"
               className=" underline cursor-pointer"
             >
               Verify
-            </Link>
+            </Link> */}
           </p>
           <p>
             Don't have an account?{" "}
