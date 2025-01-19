@@ -1,0 +1,7 @@
+[build]
+command = "remix vite:build"
+publish = "build/client"
+
+[dev]
+command = "remix vite:dev"
+framework = "vite"
