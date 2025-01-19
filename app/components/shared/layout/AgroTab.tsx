@@ -1,26 +1,35 @@
-import React from "react";
 import { useAgroTabStore } from "~/store/agroTab";
+import { useSearchParams } from "@remix-run/react";
+import { getKeyedPrefetchLinks } from "@remix-run/react/dist/links";
 
 export const AgroTab = () => {
-  const activeTab = useAgroTabStore((state) => state.activeTab);
+  const [searchParams, setSearchParams] = useSearchParams();
+  // const activeTab = useAgroTabStore((state) => state.activeTab);
+  const params = searchParams.get("category");
+  const activeTab = params ? searchParams.get("category") : "crops";
   const setActiveTab = useAgroTabStore((state) => state.setActiveTab);
+  console.log("Get search params", searchParams.get("category"));
+
+  const clickHandler = (
+    tabName: "livestock" | "poultry" | "fish" | "crops"
+  ) => {
+    setActiveTab(tabName);
+
+    const params = new URLSearchParams(searchParams);
+    params.set("category", tabName);
+    setSearchParams(params, {
+      preventScrollReset: true,
+    });
+  };
 
   return (
-    <div className="flex mt-20 px-8 justify-center items-center">
-      <div className=" flex-between w-[94%] sm:w-[90%]">
-        <p className=" sm:hidden md:block">Agro</p>
-        <div className="flex sm:gap-4 md:gap-8 justify-center items-center">
-          {/* <span
-            className={` px-2 sm:px-3 py-1 cursor-pointer bg-gray-500 rounded-[20px] text-gray-200 ${
-              activeTab === "crops" && "active-agrotab"
-            }`}
-            onClick={() => setActiveTab("crops")}
-          >
-            Crops
-          </span> */}
+    <div className="flex mt-20 px-0 justify-center items-center w-full">
+      <div className="flex-between w-[94%] sm:w-[90%] text-sm">
+        <p className="sm:hidden md:block">Agro Products</p>
+        <div className="flex sm:gap-4 md:gap-4 justify-center items-center">
           <span
             className={`agrotab ${activeTab === "crops" && "active-agrotab"}`}
-            onClick={() => setActiveTab("crops")}
+            onClick={() => clickHandler("crops")}
           >
             Crops
           </span>
@@ -28,19 +37,19 @@ export const AgroTab = () => {
             className={`agrotab ${
               activeTab === "livestock" && "active-agrotab"
             }`}
-            onClick={() => setActiveTab("livestock")}
+            onClick={() => clickHandler("livestock")}
           >
             Livestock
           </span>
           <span
             className={`agrotab ${activeTab === "fish" && "active-agrotab"}`}
-            onClick={() => setActiveTab("fish")}
+            onClick={() => clickHandler("fish")}
           >
             Fish
           </span>
           <span
             className={`agrotab ${activeTab === "poultry" && "active-agrotab"}`}
-            onClick={() => setActiveTab("poultry")}
+            onClick={() => clickHandler("poultry")}
           >
             Poultry
           </span>

@@ -5,9 +5,13 @@ import { Crops } from "./Crops";
 import { Fish } from "./Fish";
 import { Livestock } from "./Livestock";
 import { Poultry } from "./Poultry";
+import { useSearchParams } from "@remix-run/react";
 
 export const AgroSectionHome: React.FC = () => {
-  const activeTab = useAgroTabStore((state) => state.activeTab);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const params = searchParams.get("category");
+  const activeTab = params ? searchParams.get("category") : "crops";
 
   return (
     <>
