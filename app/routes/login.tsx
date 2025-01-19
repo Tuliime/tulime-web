@@ -8,6 +8,7 @@ const login = () => {
   const showPassordHandler = () => {
     setShowPassword(!showPassword);
   };
+
   return (
     <AppLayout>
       <div className=" flex flex-col gap-4 justify-center items-center sm:mt-20 lg:mt-28 text-gray-700 text-sm">
