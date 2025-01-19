@@ -2,9 +2,9 @@ import { Button } from "../UI/Button";
 
 export const Footer = () => {
   return (
-    <footer className="flex flex-col px-20 py-10 mt-auto bg-[#495057]">
+    <footer className="flex flex-col px-20 py-10 mt-auto bg-[#495057] w-[100%] text-sm">
       <div className=" flex justify-between ">
-        <div className=" text-gray-400 ">TULIIME</div>
+        <div className=" text-gray-400 ">Tulime</div>
         <div className="flex gap-8 text-gray-400">
           <div>
             <p>News</p>
@@ -32,7 +32,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="flex flex-col gap-1 text-gray-400">
-          <p>Stay in the know</p>
+          <p>Keep updated</p>
           <p>Subscribe to our news letter</p>
           <div className=" flex  items-center gap-2">
             <svg

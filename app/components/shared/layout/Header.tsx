@@ -1,3 +1,4 @@
+// import { DropdownMenu } from "@radix-ui/react-dropdown-menu";
 import { Link } from "@remix-run/react";
 import React from "react";
 import { useSidebarStore } from "~/store/sidebar";
@@ -7,12 +8,16 @@ export const Header = () => {
   const openSideBar = useSidebarStore((state) => state.openSidebar);
   const closeSideBar = useSidebarStore((state) => state.closeSidebar);
   console.log("IS SIDE BAR OPEN", isSideBarOpen);
+
   return (
     // <div className=" bg-lime-700  text-neutral-50 py-3 px-6 flex-between mb-4">
-    <div className=" bg-green-100 text-neutral-50 py-3 md:px-4 sm:px-2 flex-between mb-4 fixed w-full top-0">
+    <div
+      className="bg-green-100 text-neutral-50 py-3 md:px-4  
+       sm:px-2 flex-between"
+    >
       <span className=" cursor-pointer">
         <Link to="/" className=" md:block sm:hidden">
-          TULIIME
+          Tulime
         </Link>
       </span>
       <span className="md:hidden sm:block cursor-pointer" onClick={openSideBar}>
@@ -29,7 +34,8 @@ export const Header = () => {
         <input
           type="text"
           placeholder="Search Tuliime"
-          className="rounded-md px-4 py-2  text-zinc-700 outline-none text-sm placeholder:text-gray-500"
+          className="rounded-md px-4 py-2  text-zinc-700 outline-none
+           text-sm placeholder:text-gray-500"
         />
         <span className=" absolute top-[0.7rem] right-3 text-gray-500">
           <svg viewBox="0 0 24 24" fill="currentColor" height="1em" width="1em">
@@ -37,9 +43,16 @@ export const Header = () => {
           </svg>
         </span>
       </form>
-      <div className="flex gap-4">
-        <span>EN</span>
-        <span>SIGN IN</span>
+      <div className="flex items-center gap-4 cursor-pointer">
+        <span>
+          en
+          {/* <DropdownMenu /> */}
+        </span>
+        <Link to="/login">
+          <span className=" bg-yellow-500 px-4 py-2 rounded-[8px] hover:bg-yellow-400 transition text-sm">
+            Sign in
+          </span>
+        </Link>
       </div>
     </div>
   );

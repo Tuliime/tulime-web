@@ -1,7 +1,22 @@
 import { useEffect, useState } from "react";
+import { ArrowIcon } from "./ArrowIcon";
 
 export const News = () => {
-  const [activeImage, setActiveImage] = useState("news/new1.webp");
+  const [activeImage, setActiveImage] = useState("news/new2.webp");
+
+  const prevImgHandler = () => {
+    const currentIndex = images.indexOf(activeImage);
+    const prevIndex = (currentIndex - 1) % images.length;
+    if (currentIndex > 0) {
+      setActiveImage(images[prevIndex]);
+    }
+  };
+
+  const nextImgHandler = () => {
+    const currentIndex = images.indexOf(activeImage);
+    const nextIndex = (currentIndex + 1) % images.length;
+    setActiveImage(images[nextIndex]);
+  };
 
   const images = [
     "news/new2.webp",
@@ -35,11 +50,26 @@ export const News = () => {
   //   object-position: top center;
 
   return (
-    <div className="w-full sm:w-full flex flex-col justify-center align-middle h-70 sm:h-40 sm:mt-[4.7rem] ">
+    <div
+      // className="w-full sm:w-full flex flex-col justify-center
+      // align-middle h-70 sm:h-40 sm:mt-[4.7rem] "
+      className="w-full mt-[2px]"
+    >
+      <div className=" mb-4">
+        <h1>Education and Support</h1>
+        <div className=" flex gap-8">
+          <p className="text-sm text-blue-900 cursor-pointer border-b-2 border-blue-900">
+            News
+          </p>
+          <p className="text-sm cursor-pointer">GOU</p>
+          <p className="text-sm cursor-pointer">Conferences</p>
+          <p className="text-sm cursor-pointer">Research</p>
+        </div>
+      </div>
       <img
         src={activeImage}
         alt=""
-        className=" h-60 object-cover object-center rounded-lg"
+        className="w-full h-44 object-cover object-center rounded-lg"
       />
       {/* <a
         href="#"
@@ -48,53 +78,24 @@ export const News = () => {
         Learn more...
       </a> */}
 
-      <div className="flex justify-center items-center ">
-        <div className=" h-16 flex py-3 px-3 gap-3 min-h-4">
+      <div className="flex justify-between items-center">
+        <ArrowIcon
+          className=" text-blue-100 rotate-180 cursor-pointer"
+          onClick={prevImgHandler}
+        />
+        <div className="h-16s flex  py-3 px-3 gap-3 min-h-4s">
           {images.map((image, index) => (
             <span
               className={`dot  ${activeImage === image && "active"}`}
               onClick={() => handleDotClick(image)}
+              key={index}
             ></span>
           ))}
-          {/* <span
-            className={`dot  ${activeImage === "group-photo.jpg" && "active"}`}
-            onClick={() => handleDotClick("group-photo.jpg")}
-          ></span>
-
-          <span
-            className={`dot ${activeImage === "mission.jpg" && "active"}`}
-            onClick={() => handleDotClick("mission.jpg")}
-          ></span>
-
-          <span
-            className={`dot ${
-              activeImage === "ladies-group-photo.jpg" && "active"
-            }`}
-            onClick={() => handleDotClick("ladies-group-photo.jpg")}
-          ></span>
-          <span
-            className={`dot ${
-              activeImage === "ladies-soft-skills.jpg" && "active"
-            }`}
-            onClick={() => handleDotClick("ladies-soft-skills.jpg")}
-          ></span>
-          <span
-            className={`dot ${
-              activeImage === "women-in-energy.jpg" && "active"
-            }`}
-            onClick={() => handleDotClick("women-in-energy.jpg")}
-          ></span>
-          <span
-            className={`dot ${activeImage === "sports3.jpg" && "active"}`}
-            onClick={() => handleDotClick("sports3.jpg")}
-          ></span>
-          <span
-            className={`dot ${
-              activeImage === "ladiesCapacity.jpg" && "active"
-            }`}
-            onClick={() => handleDotClick("ladiesCapacity.jpg")}
-          ></span> */}
         </div>
+        <ArrowIcon
+          className=" text-blue-100 cursor-pointer"
+          onClick={nextImgHandler}
+        />
       </div>
     </div>
   );

@@ -1,20 +1,30 @@
-import React from "react";
-import { HiHeart } from "react-icons/hi";
-// import { heart } from "../../../constants/icons/heart";
-import heart from "../../../constants/icons";
+// import { ClipLoader } from "react-spinners";
+import ClipLoader from "react-spinners/ClipLoader";
+// import ClipLoader from "react-spinners";
 import { Product } from "../UI/Product";
-import { agroProducts } from "../../../data/agroProducts";
+import { json } from "@remix-run/node";
+import { getCropProducts } from "~/API/crops";
+import { useLoaderData } from "@remix-run/react";
+
+// export const loader = async () => {
+//   const data = await getCropProducts();
+//   return json(data);
+// };
 
 export const Crops = () => {
+  console.log("Crops data", getCropProducts());
+  const data = getCropProducts();
+  // const data = useLoaderData<typeof loader>();
+  // const hasValidData =
+  //   data &&
+  //   data.length > 0 &&
+  //   data.every((product) => product.image && product.image.length > 0);
+
   return (
-    // <div className=" flex flex-wrap gap-3 mt-8 mb-8 bg-lime-700">
-    <div className=" grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-3 mt-8 mb-8">
-      {/* <p>Crops</p>
-      <img src="/icons/heart.png" alt="" /> */}
-      {agroProducts.map((product) => (
+    <div className=" grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-3 mt-8 mb-8 w-[100%] ">
+      {data.map((product) => (
         <Product
           key={product.id}
-          id={product.id}
           name={product.name}
           category={product.category}
           price={product.price}
@@ -22,7 +32,6 @@ export const Crops = () => {
           image={product.image}
         />
       ))}
-      {/* <img src={heart} alt="" /> */}
     </div>
   );
 };
