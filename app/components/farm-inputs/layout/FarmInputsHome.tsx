@@ -1,10 +1,3 @@
-// import React from "react";
-
-// export const FarmInputsHome = () => {
-//   return <div>FarmInputsHome</div>;
-// };
-
-import React from "react";
 import { useSearchParams } from "@remix-run/react";
 import { Seeds } from "./Seeds";
 import { Fertilizers } from "./Fertilizers";

@@ -11,6 +11,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@esbuild/win32-x64": "^0.24.2",
     "@netlify/edge-functions": "^2.11.1",
     "@netlify/functions": "^2.8.2",
     "@netlify/remix-adapter": "^2.6.0",
@@ -27,7 +28,7 @@
     "react-dom": "^18.3.1",
     "react-icons": "^5.4.0",
     "react-spinners": "^0.14.1",
-    "tailwind-merge": "^2.5.5",
+    "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "uuid": "^11.0.4",
     "zustand": "^5.0.2"

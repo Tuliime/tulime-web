@@ -1,13 +1,11 @@
 // import { DropdownMenu } from "@radix-ui/react-dropdown-menu";
 import { Link } from "@remix-run/react";
-import React from "react";
 import { useSidebarStore } from "~/store/sidebar";
 
 export const Header = () => {
   const isSideBarOpen = useSidebarStore((state) => state.isOpen);
   const openSideBar = useSidebarStore((state) => state.openSidebar);
   const closeSideBar = useSidebarStore((state) => state.closeSidebar);
-  console.log("IS SIDE BAR OPEN", isSideBarOpen);
 
   return (
     // <div className=" bg-lime-700  text-neutral-50 py-3 px-6 flex-between mb-4">

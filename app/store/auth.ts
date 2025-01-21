@@ -1,12 +1,19 @@
 import { create } from "zustand";
 
+export type User = {
+  id: string;
+  name: string;
+  telNumber: string;
+  role: string;
+};
+
 export type createUsers = {
   theInitialState: {
     token: string | null;
     isLoggedIn: boolean;
-    user: {};
+    user: User | null;
   };
-  authenticateUser: (token: string | null, user: {}) => void;
+  authenticateUser: (token: string, user: User) => void;
   logOutUser: () => void;
 };
 
@@ -14,13 +21,17 @@ export const useAuthUserStore = create<createUsers>((set) => ({
   theInitialState: {
     token: null,
     isLoggedIn: false,
-    user: {},
+    user: { id: "", name: "", telNumber: "", role: "" },
   },
   logOutUser: () =>
     set((state) => ({
-      theInitialState: { token: null, isLoggedIn: false, user: {} },
+      theInitialState: {
+        token: null,
+        isLoggedIn: false,
+        user: { id: "", name: "", telNumber: "", role: "" },
+      },
     })),
-  authenticateUser: (token: string | null, user: {}) =>
+  authenticateUser: (token: string, user: User) =>
     set((state) => ({
       theInitialState: { token: token, isLoggedIn: !!token, user: user },
     })),

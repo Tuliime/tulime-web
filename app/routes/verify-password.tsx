@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import React, { useState } from "react";
+import { useState } from "react";
 import { AppLayout } from "~/components/shared/layout/AppLayout";
 
 const VerifyPassword = () => {
