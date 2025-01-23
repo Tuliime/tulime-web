@@ -1,5 +1,11 @@
 import { ActionFunctionArgs } from "@remix-run/node";
-import { Form, Link, useActionData, useNavigation } from "@remix-run/react";
+import {
+  Form,
+  Link,
+  useActionData,
+  useNavigate,
+  useNavigation,
+} from "@remix-run/react";
 import React, { useEffect, useState } from "react";
 import { register } from "~/API/auth";
 import { AppLayout } from "~/components/shared/layout/AppLayout";
@@ -48,6 +54,8 @@ const RegisterUser = () => {
   const [telephone, setTelephone] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [name, setName] = useState<string>("");
+
+  const navigate = useNavigate();
 
   const setUser = useAuthUserStore((state) => state.authenticateUser);
 

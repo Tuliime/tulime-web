@@ -9,7 +9,7 @@ export type User = {
 
 export type createUsers = {
   theInitialState: {
-    token: string | null;
+    token: string;
     isLoggedIn: boolean;
     user: User | null;
   };
@@ -19,14 +19,14 @@ export type createUsers = {
 
 export const useAuthUserStore = create<createUsers>((set) => ({
   theInitialState: {
-    token: null,
+    token: "",
     isLoggedIn: false,
     user: { id: "", name: "", telNumber: "", role: "" },
   },
   logOutUser: () =>
     set((state) => ({
       theInitialState: {
-        token: null,
+        token: "",
         isLoggedIn: false,
         user: { id: "", name: "", telNumber: "", role: "" },
       },
