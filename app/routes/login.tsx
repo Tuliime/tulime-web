@@ -5,13 +5,14 @@ import {
   Link,
   useActionData,
   useLoaderData,
+  useNavigate,
   useNavigation,
   useRouteError,
 } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import { login } from "~/API/auth";
 import { AppLayout } from "~/components/shared/layout/AppLayout";
-import { useAuthUserStore } from "~/store/auth";
+import { useAuthUserStore, User } from "~/store/auth";
 import { formatPhoneNumber } from "~/utils/formatTelNumber";
 
 // export async function loader({ request }) {
@@ -24,8 +25,6 @@ import { formatPhoneNumber } from "~/utils/formatTelNumber";
 // };
 
 export const action = async ({ request }: ActionFunctionArgs) => {
-  // const setUser = useAuthUserStore((state) => state.authenticateUser);
-
   const form = await request.formData();
 
   const telephone = form.get("telephone");
@@ -58,6 +57,24 @@ const Login = () => {
   const [telephone, setTelephone] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
+  const navigate = useNavigate();
+
+  const saveDataToStorage = (token: string, user: User) => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem(
+        "userData",
+        JSON.stringify({
+          token: token,
+          user: user,
+        })
+      );
+    } else {
+      console.warn(
+        "saveDataToStorage called on the server; no localStorage available."
+      );
+    }
+  };
+
   const handleTelephoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTelephone(e.target.value);
   };
@@ -76,8 +93,10 @@ const Login = () => {
   useEffect(() => {
     if (actionData?.accessToken && actionData?.user) {
       setUser(actionData.accessToken, actionData.user);
+      saveDataToStorage(actionData.accessToken, actionData.user);
       setTelephone("");
       setPassword("");
+      navigate("/loggedin");
     }
   }, [actionData, setUser]);
 
@@ -181,6 +200,14 @@ const Login = () => {
 
 export default Login;
 
+// export function ErrorBoundary({ error }: { error: Error }) {
+//   return (
+//     <div>
+//       <h1>Something went wrong!</h1>
+//       <p>{error.message}</p>
+//     </div>
+//   );
+// }
 export function ErrorBoundary() {
   const error = useRouteError();
 
@@ -198,8 +225,8 @@ export function ErrorBoundary() {
       <div>
         <h1>Error</h1>
         <p>{error.message}</p>
-        <p>The stack trace is:</p>
-        <pre>{error.stack}</pre>
+        {/* <p>The stack trace is:</p> */}
+        {/* <pre>{error.stack}</pre> */}
       </div>
     );
   } else {

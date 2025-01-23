@@ -1,25 +1,25 @@
 import { useAuthUserStore, User } from "~/store/auth";
 import { baseUrl } from "~/utils/baseUrl";
 
-const saveDataToStorage = (token: string, user: User) => {
-  if (typeof window !== "undefined") {
-    localStorage.setItem(
-      "userData",
-      JSON.stringify({
-        token: token,
-        user: user,
-      })
-    );
-  } else {
-    console.warn(
-      "saveDataToStorage called on the server; no localStorage available."
-    );
-  }
-};
+// const saveDataToStorage = (token: string, user: User) => {
+//   if (typeof window !== "undefined") {
+//     localStorage.setItem(
+//       "userData",
+//       JSON.stringify({
+//         token: token,
+//         user: user,
+//       })
+//     );
+//   } else {
+//     console.warn(
+//       "saveDataToStorage called on the server; no localStorage available."
+//     );
+//   }
+// };
 
 export const authenticate = (token: string, user: User) => {
   // setUser(token, user);
-  saveDataToStorage(token, user);
+  // saveDataToStorage(token, user);
 };
 
 export const login = async (telNumber: number, password: string) => {
@@ -42,7 +42,7 @@ export const login = async (telNumber: number, password: string) => {
   }
 
   // authenticate(data.token, data.user);
-  saveDataToStorage(data.accessToken, data.user);
+  // saveDataToStorage(data.accessToken, data.user);
   return data;
 };
 
@@ -74,7 +74,7 @@ export const register = async (
   console.log("USER REG DATA", data);
 
   // authenticate(data.user, data.accessToken);
-  saveDataToStorage(data.accessToken, data.user);
+  // saveDataToStorage(data.accessToken, data.user);
   return data;
 };
 
