@@ -1,22 +1,25 @@
-import { useAuthUserStore } from "~/store/auth";
+import { useAuthUserStore, User } from "~/store/auth";
 import { baseUrl } from "~/utils/baseUrl";
 
-const setUser = useAuthUserStore((state) => state.authenticateUser);
-const setlogOut = useAuthUserStore((state) => state.logOutUser);
+// const saveDataToStorage = (token: string, user: User) => {
+//   if (typeof window !== "undefined") {
+//     localStorage.setItem(
+//       "userData",
+//       JSON.stringify({
+//         token: token,
+//         user: user,
+//       })
+//     );
+//   } else {
+//     console.warn(
+//       "saveDataToStorage called on the server; no localStorage available."
+//     );
+//   }
+// };
 
-const saveDataToStorage = (token: string | null, user: {}) => {
-  localStorage.setItem(
-    "userData",
-    JSON.stringify({
-      token: token,
-      user: user,
-    })
-  );
-};
-
-export const authenticate = (token: string | null, user: {}) => {
-  setUser(token, user);
-  saveDataToStorage(token, user);
+export const authenticate = (token: string, user: User) => {
+  // setUser(token, user);
+  // saveDataToStorage(token, user);
 };
 
 export const login = async (telNumber: number, password: string) => {
@@ -33,13 +36,20 @@ export const login = async (telNumber: number, password: string) => {
 
   const data = await response.json();
 
-  authenticate(data.token, data.user);
+  if (!response.ok) {
+    console.log("forgot password error messaage:", data.message);
+    throw new Error(data.message);
+  }
+
+  // authenticate(data.token, data.user);
+  // saveDataToStorage(data.accessToken, data.user);
+  return data;
 };
 
-export const logOut = () => {
-  localStorage.clear();
-  setlogOut();
-};
+// export const logOut = () => {
+//   localStorage.clear();
+//   setlogOut();
+// };
 
 export const register = async (
   name: string,
@@ -63,8 +73,9 @@ export const register = async (
   const data = await response.json();
   console.log("USER REG DATA", data);
 
-  authenticate(data.user, data.accessToken);
-  saveDataToStorage(data.user, data.accessToken);
+  // authenticate(data.user, data.accessToken);
+  // saveDataToStorage(data.accessToken, data.user);
+  return data;
 };
 
 export const forgotPassword = async (telNumber: number) => {

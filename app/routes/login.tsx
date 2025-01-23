@@ -1,24 +1,130 @@
-import { Link } from "@remix-run/react";
-import React, { useState } from "react";
+import { ActionFunction, ActionFunctionArgs } from "@remix-run/node";
+import {
+  Form,
+  isRouteErrorResponse,
+  Link,
+  useActionData,
+  useLoaderData,
+  useNavigate,
+  useNavigation,
+  useRouteError,
+} from "@remix-run/react";
+import { useEffect, useState } from "react";
+import { login } from "~/API/auth";
 import { AppLayout } from "~/components/shared/layout/AppLayout";
+import { useAuthUserStore, User } from "~/store/auth";
+import { formatPhoneNumber } from "~/utils/formatTelNumber";
 
-const login = () => {
+// export async function loader({ request }) {
+//   return getProjects();
+// }
+
+// export const loader = async () => {
+//   const data = login;
+//   return data;
+// };
+
+export const action = async ({ request }: ActionFunctionArgs) => {
+  const form = await request.formData();
+
+  const telephone = form.get("telephone");
+  const telephoneRaw = typeof telephone === "string" ? telephone : "";
+
+  const telNumber = formatPhoneNumber(telephoneRaw);
+
+  const passwordRaw = form.get("password");
+  const password = typeof passwordRaw === "string" ? passwordRaw : "";
+
+  if (!password) {
+    throw new Error("Password is required");
+  }
+
+  if (!telNumber || isNaN(telNumber)) {
+    throw new Error("Invalid telephone number");
+  }
+
+  console.log("SUBMIT LOGIN DETAILS", telNumber, password);
+
+  const { accessToken, user } = await login(telNumber, password);
+  // setUser(token, user);
+  console.log("USER from login response", user);
+  console.log("TOKEN from login response", accessToken);
+  return { accessToken, user };
+};
+
+const Login = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [telephone, setTelephone] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  const navigate = useNavigate();
+
+  const saveDataToStorage = (token: string, user: User) => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem(
+        "userData",
+        JSON.stringify({
+          token: token,
+          user: user,
+        })
+      );
+    } else {
+      console.warn(
+        "saveDataToStorage called on the server; no localStorage available."
+      );
+    }
+  };
+
+  const handleTelephoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTelephone(e.target.value);
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  const setUser = useAuthUserStore((state) => state.authenticateUser);
+
+  const actionData = useActionData<{
+    accessToken: string;
+    user: { id: string; name: string; telNumber: string; role: string };
+  }>();
+
+  useEffect(() => {
+    if (actionData?.accessToken && actionData?.user) {
+      setUser(actionData.accessToken, actionData.user);
+      saveDataToStorage(actionData.accessToken, actionData.user);
+      setTelephone("");
+      setPassword("");
+      navigate("/loggedin");
+    }
+  }, [actionData, setUser]);
+
+  // setUser(actionData.accessToken, actionData.user);
+  // const setlogOut = useAuthUserStore((state) => state.logOutUser);
 
   const showPassordHandler = () => {
     setShowPassword(!showPassword);
   };
 
+  const { state } = useNavigation();
+  const busy = state === "submitting";
+
   return (
     <AppLayout>
       <div className=" flex flex-col gap-4 justify-center items-center sm:mt-20 lg:mt-28 text-gray-700 text-sm">
         <p>Log Into Your Account</p>
-        <form className=" flex flex-col gap-4 bg-white py-5 px-5 rounded-sm shadow-md text-[0.8rem]">
+        <Form
+          className=" flex flex-col gap-4 bg-white py-5 px-5 rounded-sm shadow-md text-[0.8rem]"
+          method="post"
+        >
           <div className="flex flex-col gap-1">
             <label>Tel Number</label>
             <input
               name="telephone"
               type="text"
+              value={telephone}
+              onChange={handleTelephoneChange}
               className="rounded-sm border py-1 outline-none placeholder-gray-700"
             />
           </div>
@@ -27,6 +133,8 @@ const login = () => {
             <input
               name="password"
               type={`${showPassword ? "text" : "password"}`}
+              value={password}
+              onChange={handlePasswordChange}
               className="rounded-sm border py-1 outline-none px-1"
             />
             {showPassword ? (
@@ -54,17 +162,21 @@ const login = () => {
               </svg>
             )}
           </div>
-          <button className="bg-[#37B24D] text-white py-1 rounded-sm text-[0.8rem]">
-            Log In
+          <button
+            className="bg-[#37B24D] text-white py-1 rounded-sm text-[0.8rem]"
+            type="submit"
+            disabled={busy}
+          >
+            {busy ? "Logging In..." : "Log In"}
           </button>
-        </form>
+        </Form>
         <div className=" text-[0.7rem] flex flex-col text-blue-100 justify-center items-center">
           <p>
             Forgot Password?{" "}
             <Link to="/reset" className="underline cursor-pointer">
               Reset
             </Link>
-            {/* <Link to="/reset-password" className=" underline cursor-pointer">
+            {/* <Link to="/verify-password" className=" underline cursor-pointer">
               Password Reset
             </Link> */}
             {/* <Link
@@ -86,4 +198,68 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;
+
+// export function ErrorBoundary({ error }: { error: Error }) {
+//   return (
+//     <div>
+//       <h1>Something went wrong!</h1>
+//       <p>{error.message}</p>
+//     </div>
+//   );
+// }
+export function ErrorBoundary() {
+  const error = useRouteError();
+
+  if (isRouteErrorResponse(error)) {
+    return (
+      <div>
+        <h1>
+          {error.status} {error.statusText}
+        </h1>
+        <p>{error.data}</p>
+      </div>
+    );
+  } else if (error instanceof Error) {
+    return (
+      <div>
+        <h1>Error</h1>
+        <p>{error.message}</p>
+        {/* <p>The stack trace is:</p> */}
+        {/* <pre>{error.stack}</pre> */}
+      </div>
+    );
+  } else {
+    return <h1>Unknown Error</h1>;
+  }
+}
+
+//   export async function loader({ request }) {
+//     return getProjects();
+//   }
+
+//   export async function action({ request }) {
+//     const form = await request.formData();
+//     return createProject({ title: form.get("title") });
+//   }
+
+//   export default function Projects() {
+//     const projects = useLoaderData();
+//     const { state } = useNavigation();
+//     const busy = state === "submitting";
+
+//     return (
+//       <div>
+//         {projects.map((project) => (
+//           <Link to={project.slug}>{project.title}</Link>
+//         ))}
+
+//         <Form method="post">
+//           <input name="title" />
+//           <button type="submit" disabled={busy}>
+//             {busy ? "Creating..." : "Create New Project"}
+//           </button>
+//         </Form>
+//       </div>
+//     );
+//   }

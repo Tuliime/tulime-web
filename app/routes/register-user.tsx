@@ -1,23 +1,111 @@
-import { Link } from "@remix-run/react";
-import React, { useState } from "react";
+import { ActionFunctionArgs } from "@remix-run/node";
+import {
+  Form,
+  Link,
+  useActionData,
+  useNavigate,
+  useNavigation,
+} from "@remix-run/react";
+import React, { useEffect, useState } from "react";
+import { register } from "~/API/auth";
 import { AppLayout } from "~/components/shared/layout/AppLayout";
+import { useAuthUserStore } from "~/store/auth";
+import { formatPhoneNumber } from "~/utils/formatTelNumber";
+
+export const action = async ({ request }: ActionFunctionArgs) => {
+  // const setUser = useAuthUserStore((state) => state.authenticateUser);
+
+  const form = await request.formData();
+
+  const telephone = form.get("telephone");
+  const telephoneRaw = typeof telephone === "string" ? telephone : "";
+
+  const telNumber = formatPhoneNumber(telephoneRaw);
+
+  const passwordRaw = form.get("password");
+  const password = typeof passwordRaw === "string" ? passwordRaw : "";
+
+  const nameRaw = form.get("name");
+  const name = typeof nameRaw === "string" ? nameRaw : "";
+
+  if (!name) {
+    throw new Error("Your name is required");
+  }
+
+  if (!password) {
+    throw new Error("Password is required");
+  }
+
+  if (!telNumber || isNaN(telNumber)) {
+    throw new Error("Invalid telephone number");
+  }
+
+  console.log("SUBMIT REGISTER USER DETAILS", name, telNumber, password);
+
+  const { accessToken, user } = await register(name, telNumber, password);
+  // setUser(token, user);
+  console.log("USER from login response", user);
+  console.log("TOKEN from login response", accessToken);
+  return { accessToken, user };
+};
 
 const RegisterUser = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [telephone, setTelephone] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [name, setName] = useState<string>("");
+
+  const navigate = useNavigate();
+
+  const setUser = useAuthUserStore((state) => state.authenticateUser);
+
+  const handleTelephoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTelephone(e.target.value);
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  };
+
+  const actionData = useActionData<{
+    accessToken: string;
+    user: { id: string; name: string; telNumber: string; role: string };
+  }>();
+
+  useEffect(() => {
+    if (actionData?.accessToken && actionData?.user) {
+      setUser(actionData.accessToken, actionData.user);
+      setTelephone("");
+      setPassword("");
+      setName("");
+    }
+  }, [actionData, setUser]);
 
   const showPassordHandler = () => {
     setShowPassword(!showPassword);
   };
+
+  const { state } = useNavigation();
+  const busy = state === "submitting";
   return (
     <AppLayout>
       <div className=" flex flex-col gap-4 justify-center items-center sm:mt-20 lg:mt-28 text-gray-700 text-sm">
         <p>Create Tulime Account</p>
-        <form className=" flex flex-col gap-4 bg-white py-5 px-5 rounded-sm shadow-md text-[0.8rem]">
+        <Form
+          className=" flex flex-col gap-4 bg-white py-5 px-5 rounded-sm shadow-md text-[0.8rem]"
+          method="post"
+        >
           <div className="flex flex-col gap-1">
             <label>User name</label>
             <input
-              name="telephone"
+              name="name"
               type="text"
+              value={name}
+              onChange={handleNameChange}
               className="rounded-sm border py-1 outline-none placeholder-gray-700"
             />
           </div>
@@ -26,6 +114,8 @@ const RegisterUser = () => {
             <input
               name="telephone"
               type="text"
+              value={telephone}
+              onChange={handleTelephoneChange}
               className="rounded-sm border py-1 outline-none placeholder-gray-700"
             />
           </div>
@@ -34,6 +124,8 @@ const RegisterUser = () => {
             <input
               name="password"
               type={`${showPassword ? "text" : "password"}`}
+              value={password}
+              onChange={handlePasswordChange}
               className="rounded-sm border py-1 outline-none px-1"
             />
             {showPassword ? (
@@ -62,9 +154,9 @@ const RegisterUser = () => {
             )}
           </div>
           <button className="bg-[#37B24D] text-white py-1 rounded-sm text-[0.8rem]">
-            Create
+            {busy ? "Registering..." : "Create"}
           </button>
-        </form>
+        </Form>
         <div className=" text-[0.7rem] flex flex-col text-blue-100 justify-center items-center">
           <p>
             Already have an account?{" "}
