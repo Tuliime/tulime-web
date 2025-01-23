@@ -43,8 +43,6 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     throw new Error("Invalid telephone number");
   }
 
-  console.log("SUBMIT LOGIN DETAILS", telNumber, password);
-
   const { accessToken, user } = await login(telNumber, password);
   // setUser(token, user);
   console.log("USER from login response", user);
@@ -58,22 +56,6 @@ const Login = () => {
   const [password, setPassword] = useState<string>("");
 
   const navigate = useNavigate();
-
-  const saveDataToStorage = (token: string, user: User) => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem(
-        "userData",
-        JSON.stringify({
-          token: token,
-          user: user,
-        })
-      );
-    } else {
-      console.warn(
-        "saveDataToStorage called on the server; no localStorage available."
-      );
-    }
-  };
 
   const handleTelephoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTelephone(e.target.value);
@@ -93,7 +75,6 @@ const Login = () => {
   useEffect(() => {
     if (actionData?.accessToken && actionData?.user) {
       setUser(actionData.accessToken, actionData.user);
-      saveDataToStorage(actionData.accessToken, actionData.user);
       setTelephone("");
       setPassword("");
       navigate("/loggedin");
