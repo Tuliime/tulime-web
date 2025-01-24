@@ -24,7 +24,6 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   }
 
   const response = await forgotPassword(telNumber);
-  // setUser(token, user);
   console.log("forgotPassword response", response);
 
   return response;
@@ -75,7 +74,11 @@ const Reset = () => {
             />
           </div>
 
-          <button className="bg-[#37B24D] text-white py-1 rounded-sm  text-[0.8rem]">
+          <button
+            className="bg-[#37B24D] text-white py-1 rounded-sm  text-[0.8rem]"
+            type="submit"
+            disabled={busy}
+          >
             {busy ? "Submitting..." : "Submit"}
           </button>
         </Form>

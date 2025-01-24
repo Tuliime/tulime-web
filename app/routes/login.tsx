@@ -154,12 +154,15 @@ const Login = () => {
         <div className=" text-[0.7rem] flex flex-col text-blue-100 justify-center items-center">
           <p>
             Forgot Password?{" "}
-            <Link to="/reset" className="underline cursor-pointer">
+            {/* <Link to="/reset" className="underline cursor-pointer">
               Reset
-            </Link>
+            </Link> */}
             {/* <Link to="/verify-password" className=" underline cursor-pointer">
               Password Reset
             </Link> */}
+            <Link to="/change-password" className=" underline cursor-pointer">
+              Change Password
+            </Link>
             {/* <Link
               to="/verify-password-code"
               className=" underline cursor-pointer"

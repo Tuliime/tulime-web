@@ -4,6 +4,7 @@ import {
   Link,
   useActionData,
   useNavigation,
+  useSearchParams,
   useViewTransitionState,
 } from "@remix-run/react";
 import React, { useEffect, useRef } from "react";
@@ -114,7 +115,11 @@ const VerifyPasswordCode = () => {
             </p>
           )}
 
-          <button className="bg-[#37B24D] text-white py-1 rounded-sm text-[0.8rem]">
+          <button
+            className="bg-[#37B24D] text-white py-1 rounded-sm text-[0.8rem]"
+            type="submit"
+            disabled={busy}
+          >
             {busy ? "Verifying..." : "Verify"}
           </button>
         </Form>

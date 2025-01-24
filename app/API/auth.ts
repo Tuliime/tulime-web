@@ -117,7 +117,7 @@ export const verifyOtp = async (otp: string) => {
   return data;
 };
 
-export const resetPassword = async (password: string, savedOtp: number) => {
+export const resetPassword = async (password: string, savedOtp: string) => {
   const response = await fetch(
     `${baseUrl}/api/v0.01/user/auth/reset-password/${savedOtp}`,
     {
@@ -135,6 +135,7 @@ export const resetPassword = async (password: string, savedOtp: number) => {
 
   const data = await response.json();
   console.log("RESET PASSWORD", data);
+  return data;
 };
 
 export const changePassword = async (
@@ -162,6 +163,7 @@ export const changePassword = async (
 
   const data = await response.json();
   console.log("RESET PASSWORD", data);
+  return data;
 };
 
 export const updateUserImage = async (
