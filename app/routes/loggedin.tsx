@@ -1,6 +1,6 @@
 import { useNavigate } from "@remix-run/react";
-import React from "react";
 import { AppLayout } from "~/components/shared/layout/AppLayout";
+
 import { useAuthUserStore } from "~/store/auth";
 
 const Loggedin = () => {

@@ -42,7 +42,7 @@ const ChangePassword = () => {
 
   const token = useAuthUserStore((state) => state.token);
   const user = useAuthUserStore((state) => state.user);
-  const userId = useAuthUserStore((state) => state.user?.id);
+  const userId = useAuthUserStore((state) => state.user?.id)!;
 
   const { state } = useNavigation();
   const busy = state === "submitting";

@@ -198,6 +198,18 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      keyframes: {
+        flyIn: {
+          "0%": { top: "1.8rem" },
+          // "20%": { transform: "translateY(-20px)", opacity: "0.3" },
+          // "40%": { transform: "translateY(-10px)", opacity: "0.5" },
+          // "80%": { transform: "translateY(-10px)", opacity: "0.8" },
+          "100%": { top: "2.75rem" },
+        },
+      },
+      animation: {
+        flyIn: "flyIn 0.3s ease-out",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

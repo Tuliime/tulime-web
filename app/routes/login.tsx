@@ -77,7 +77,7 @@ const Login = () => {
       setUser(actionData.accessToken, actionData.user);
       setTelephone("");
       setPassword("");
-      navigate("/loggedin");
+      navigate("/");
     }
   }, [actionData, setUser]);
 
