@@ -1,3 +1,4 @@
+import { farmMangers } from "~/data/farmManagers";
 import { baseUrl } from "~/utils/baseUrl";
 
 export const postFarmManager = async (
@@ -107,4 +108,12 @@ export const deleteFarmManager = async (
       Authorization: `Bearer ${token}`,
     },
   });
+};
+
+export const getVerifiedFarmManagers = () => {
+  {
+    return farmMangers.filter((farmer) => {
+      return farmer.verified === true;
+    });
+  }
 };
