@@ -9,7 +9,7 @@ export const Farmers = () => {
     <div className="lg:px-12 md:px-8 sm:px-6 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-3 mt-8 mb-8 w-[100%]">
       {data.map((farmer) => (
         <Link
-          key={farmer.id}
+          // key={farmer.id}
           to={`/farm-managers/${farmer.id}`}
           className="block"
         >

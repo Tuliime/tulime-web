@@ -3,7 +3,7 @@ import { generateLicenseNumber } from "~/utils/generateLicenseNumbers";
 
 export const farmMangers = [
   {
-    id: uuidv4(),
+    id: "1",
     name: "Mr. Tumusiime Geofrey",
     gender: "male",
     verified: true,
@@ -15,7 +15,7 @@ export const farmMangers = [
     updated: "2 hours ago",
   },
   {
-    id: uuidv4(),
+    id: "2",
     name: "Mrs. Daniel Masereka",
     gender: "male",
     verified: true,
@@ -27,7 +27,7 @@ export const farmMangers = [
     updated: "10 hours ago",
   },
   {
-    id: uuidv4(),
+    id: "3",
     name: "Mr. Matayo Joseph",
     gender: "male",
     verified: true,
@@ -39,7 +39,7 @@ export const farmMangers = [
     updated: "20 hours ago",
   },
   {
-    id: uuidv4(),
+    id: "4",
     name: "Mr. Tomasi Timothy",
     gender: "male",
     verified: true,
@@ -51,7 +51,7 @@ export const farmMangers = [
     updated: "5 hours ago",
   },
   {
-    id: uuidv4(),
+    id: "5",
     name: "Mr. Alex Kibuuka",
     gender: "male",
     verified: true,
@@ -63,7 +63,7 @@ export const farmMangers = [
     updated: "2 days ago",
   },
   {
-    id: uuidv4(),
+    id: "6",
     name: "Mr. John Muhumuza",
     gender: "male",
     verified: true,
@@ -76,7 +76,7 @@ export const farmMangers = [
   },
   /////////////////////////////////////////////////////////////
   {
-    id: uuidv4(),
+    id: "7",
     name: "Mr. Tumusiime Geofrey",
     gender: "male",
     verified: true,
@@ -88,7 +88,7 @@ export const farmMangers = [
     updated: "2 hours ago",
   },
   {
-    id: uuidv4(),
+    id: "8",
     name: "Mrs. Daniel Masereka",
     gender: "male",
     verified: true,
@@ -100,7 +100,7 @@ export const farmMangers = [
     updated: "10 hours ago",
   },
   {
-    id: uuidv4(),
+    id: "9",
     name: "Mr. Matayo Joseph",
     gender: "male",
     verified: true,
@@ -112,7 +112,7 @@ export const farmMangers = [
     updated: "20 hours ago",
   },
   {
-    id: uuidv4(),
+    id: "10",
     name: "Mr. Tomasi Timothy",
     gender: "male",
     verified: true,
@@ -124,7 +124,7 @@ export const farmMangers = [
     updated: "5 hours ago",
   },
   {
-    id: uuidv4(),
+    id: "11",
     name: "Mr. Alex Kibuuka",
     gender: "male",
     verified: true,
@@ -136,7 +136,7 @@ export const farmMangers = [
     updated: "2 days ago",
   },
   {
-    id: uuidv4(),
+    id: "12",
     name: "Mr. John Muhumuza",
     gender: "male",
     verified: true,
@@ -149,7 +149,7 @@ export const farmMangers = [
   },
   /////////////////////////////////////////////////////////////
   {
-    id: uuidv4(),
+    id: "13",
     name: "Mr. Tumusiime Geofrey",
     gender: "male",
     verified: true,
@@ -161,7 +161,7 @@ export const farmMangers = [
     updated: "2 hours ago",
   },
   {
-    id: uuidv4(),
+    id: "14",
     name: "Mrs. Daniel Masereka",
     gender: "male",
     verified: true,
@@ -173,7 +173,7 @@ export const farmMangers = [
     updated: "10 hours ago",
   },
   {
-    id: uuidv4(),
+    id: "15",
     name: "Mr. Matayo Joseph",
     gender: "male",
     verified: true,
@@ -185,7 +185,7 @@ export const farmMangers = [
     updated: "20 hours ago",
   },
   {
-    id: uuidv4(),
+    id: "16",
     name: "Mr. Tomasi Timothy",
     gender: "male",
     verified: true,
@@ -197,7 +197,7 @@ export const farmMangers = [
     updated: "5 hours ago",
   },
   {
-    id: uuidv4(),
+    id: "17",
     name: "Mr. Alex Kibuuka",
     gender: "male",
     verified: true,
@@ -209,7 +209,7 @@ export const farmMangers = [
     updated: "2 days ago",
   },
   {
-    id: uuidv4(),
+    id: "18",
     name: "Mr. John Muhumuza",
     gender: "male",
     verified: true,
