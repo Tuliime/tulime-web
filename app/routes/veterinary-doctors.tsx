@@ -4,8 +4,7 @@ import { AppLayout } from "~/components/shared/layout/AppLayout";
 const VeterinaryDoctors = () => {
   return (
     <AppLayout>
-      <div className="lg:px-12 md:px-8 sm:px-6">
-        <p>Veterinary workers & Farm managers</p>
+      <div className="lg:px-12 md:px-8 sm:px-6 text-gray-700">
         <p>Veterinary workers</p>
       </div>
       <VetDoctors />
