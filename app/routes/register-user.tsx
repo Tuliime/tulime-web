@@ -153,7 +153,11 @@ const RegisterUser = () => {
               </svg>
             )}
           </div>
-          <button className="bg-[#37B24D] text-white py-1 rounded-sm text-[0.8rem]">
+          <button
+            className="bg-[#37B24D] text-white py-1 rounded-sm text-[0.8rem]"
+            type="submit"
+            disabled={busy}
+          >
             {busy ? "Registering..." : "Create"}
           </button>
         </Form>

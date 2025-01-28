@@ -41,27 +41,3 @@ export const useAuthUserStore = create<AuthUserStore>()(
     }
   )
 );
-
-// export const useAuthUserStore = create<createUsers>()(persist((set) => ({
-
-//     token: "",
-//     isLoggedIn: false,
-//     user: { id: "", name: "", telNumber: "", role: "" },
-
-//   logOutUser: () =>
-//     set((state) => ({
-
-//         token: "",
-//         isLoggedIn: false,
-//         user: { id: "", name: "", telNumber: "", role: "" },
-
-//     })),
-//   authenticateUser: (token: string, user: User) =>
-//     set((state) => ({
-//        token: token, isLoggedIn: !!token, user: user ,
-//     })),
-//     {
-//       name: "auth-storage",
-//     }
-//   )
-// }));
