@@ -1,4 +1,5 @@
 import { baseUrl } from "~/utils/baseUrl";
+import { vetDoctors } from "~/data/vetDoctors";
 
 export const postVetDoctor = async (
   userId: string,
@@ -107,4 +108,12 @@ export const deleteVetDoctor = async (token: string, vetDoctorId: string) => {
       Authorization: `Bearer ${token}`,
     },
   });
+};
+
+export const getVerifiedVetDoctors = () => {
+  {
+    return vetDoctors.filter((doctor) => {
+      return doctor.verified === true;
+    });
+  }
 };

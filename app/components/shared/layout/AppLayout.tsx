@@ -25,6 +25,7 @@ export const AppLayout: React.FC<AppLayoutProps> = (props) => {
     logOut();
     navigate("/");
   };
+
   return (
     <div className="w-full">
       <header className="fixed w-full top-0">

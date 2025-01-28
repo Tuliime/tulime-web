@@ -53,7 +53,7 @@ export const SideBar = () => {
       </li>
       <li className="cursor-pointer hover:text-blue-800 transition text-gray-800">
         <Link
-          to="/farm-inputs"
+          to="/farm-managers"
           className=" flex gap-1 justify-between items-center"
         >
           <div className="flex gap-2">
