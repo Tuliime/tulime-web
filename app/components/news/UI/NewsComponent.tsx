@@ -17,7 +17,7 @@ export const NewsComponent: React.FC<newsProps> = ({
 }) => {
   return (
     <div
-      className={`${className} w-[100%] h-70 rounded-lg text-[0.7rem] flex flex-col gap-1 cursor-pointer relative`}
+      className={`${className} w-[100%] h-70 rounded-lg text-[0.7rem] flex flex-col gap-1 cursor-pointer relative z-[-10]`}
     >
       <img
         src={image}
