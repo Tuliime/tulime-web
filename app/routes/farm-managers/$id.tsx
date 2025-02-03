@@ -1,22 +1,13 @@
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, useParams } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import { AppLayout } from "~/components/shared/layout/AppLayout";
 import { farmMangers } from "~/data/farmManagers";
 
-export const loader = async ({ params }: { params: { farmerId: string } }) => {
-  const farmer = farmMangers.find((farmer) => farmer.id === params.farmerId);
-  console.log("Params:", params);
-
-  if (!farmer) {
-    throw new Response("Farmer Not Found", { status: 404 });
-  }
-  console.log("Farmer:", farmer);
-
-  return json(farmer);
-};
-
 const FarmerDetails = () => {
   const farmer = useLoaderData<typeof loader>();
+  // const params = useParams();
+  // const farmer = farmMangers.find((farmer) => farmer.id === params.id);
+  // console.log("Params:", params);
 
   if (!farmer) {
     return <div>Product Not Found</div>;
@@ -34,6 +25,17 @@ const FarmerDetails = () => {
 };
 
 export default FarmerDetails;
+
+export const loader = async ({ params }: { params: { id: string } }) => {
+  const farmer = farmMangers.find((farmer) => farmer.id === params.id);
+
+  console.log("Params:", params);
+  if (!farmer) {
+    throw new Response("Farmer Not Found", { status: 404 });
+  }
+  console.log("Farmer:", farmer);
+  return json(farmer);
+};
 
 export function ErrorBoundary({ error }: { error: Error }) {
   return (

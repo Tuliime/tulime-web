@@ -19,7 +19,7 @@ export const VetComponent: React.FC<VetProps> = ({
 }) => {
   return (
     <div
-      className={`${className} bg-white shadow-md w-[100%] h-70 rounded-lg text-[0.78rem] flex flex-col items-center`}
+      className={`${className} bg-white shadow-md w-[100%] h-70 rounded-lg text-[0.78rem] flex flex-col items-center cursor-pointer`}
     >
       <img
         src={image}
