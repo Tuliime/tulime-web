@@ -32,7 +32,7 @@ export const Chat = () => {
   const [botState, setBotState] = useState("voiced");
 
   const [newMessage, setNewMessage] = useState("");
-  const messagesRef = useRef<HTMLDivElement>();
+  const messagesRef = useRef<HTMLDivElement>(null);
 
   const [active, setActive] = useState("voice");
 
@@ -458,7 +458,7 @@ export const Chat = () => {
           placeholder="Ask Tulime chatbot"
           value={newMessage}
           onChange={handleInputChange}
-          className=" bg-gray-200 rounded-[4rem] px-3 py-2 w-full"
+          className=" bg-gray-200 rounded-[4rem] px-3 py-2 w-full focus:outline-none"
         />
         <button
           type="submit"
