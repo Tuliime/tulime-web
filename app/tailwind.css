@@ -24,41 +24,42 @@ body {
 .user-bubble {
   position: relative;
   background-color: #e2e8f0; /* Tailwind bg-gray-200 */
-  border-radius: 0.375rem; /* Tailwind rounded-md */
-  padding: 0.5rem; /* Adjust padding as needed */
-  /* Optional: max-width, margin, etc. */
+  border-radius: 0.375rem;
+  padding: 0.5rem;
 }
 
 .user-bubble::after {
   content: "";
   position: absolute;
-  right: -8px; /* adjust to position the tail */
-  top: 10px; /* adjust vertical alignment */
+  right: 10px;
+  top: -11.5px;
   width: 0;
   height: 0;
+  rotate: 270deg;
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
-  border-left: 8px solid #e2e8f0; /* match the background color */
+  border-left: 8px solid #e2e8f0;
 }
 
 /* Bot message bubble (tail on the left) */
 .bot-bubble {
   position: relative;
   background-color: #e2e8f0; /* Tailwind bg-gray-200 */
-  border-radius: 0.375rem; /* Tailwind rounded-md */
-  padding: 0.5rem; /* Adjust padding as needed */
+  border-radius: 0.375rem;
+  padding: 0.5rem;
 }
 
 .bot-bubble::before {
   content: "";
   position: absolute;
-  left: -8px; /* adjust to position the tail */
-  top: 10px; /* adjust vertical alignment */
+  left: 10px;
+  top: -11.5px;
   width: 0;
   height: 0;
+  rotate: 90deg;
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
-  border-right: 8px solid #e2e8f0; /* match the background color */
+  border-right: 8px solid #e2e8f0;
 }
 
 /* ========================================== TAILWIND STYLES */
