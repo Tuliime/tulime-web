@@ -248,6 +248,11 @@ export const Chat = () => {
     const randomIndex = Math.floor(Math.random() * randomStrings.length);
     return randomStrings[randomIndex];
   }
+  const scrollToBottom = () => {
+    if (messagesRef.current) {
+      messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+    }
+  };
 
   useEffect(() => {
     // Set initial messages
@@ -258,15 +263,8 @@ export const Chat = () => {
   }, []);
 
   useEffect(() => {
-    // Scroll to the bottom of the messages whenever new messages are added
     scrollToBottom();
   }, [messages]);
-
-  const scrollToBottom = () => {
-    if (messagesRef.current) {
-      messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
-    }
-  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewMessage(e.target.value);
@@ -400,7 +398,7 @@ export const Chat = () => {
         </div>
       </div>
 
-      <div className=" px-3 py-3 max-h-80 overflow-y-scroll">
+      <div className=" px-3 py-3 max-h-80 overflow-y-scroll" ref={messagesRef}>
         {messages.map((message, index) => (
           <div key={index}>
             {message?.user && (
@@ -411,7 +409,7 @@ export const Chat = () => {
                       <span>D</span>
                     </div>
                   </div>
-                  <div className=" px-1 py-1 bg-gray-200 rounded-md flex flex-col">
+                  <div className="user-bubble px-1 py-1 bg-gray-200 rounded-md flex flex-col">
                     <span>{message?.user}</span>
                     <span className="flex justify-end text-[0.5rem] text-gray-600">
                       {message?.time}
@@ -441,7 +439,7 @@ export const Chat = () => {
                       <path d="M8.5 1.866a1 1 0 10-1 0V3h-2A4.5 4.5 0 001 7.5V8a1 1 0 00-1 1v2a1 1 0 001 1v1a2 2 0 002 2h10a2 2 0 002-2v-1a1 1 0 001-1V9a1 1 0 00-1-1v-.5A4.5 4.5 0 0010.5 3h-2V1.866zM14 7.5V13a1 1 0 01-1 1H3a1 1 0 01-1-1V7.5A3.5 3.5 0 015.5 4h5A3.5 3.5 0 0114 7.5z" />
                     </svg>
                   </div>
-                  <div className=" px-1 py-1 bg-gray-200 rounded-md flex flex-col">
+                  <div className="bot-bubble px-1 py-1 bg-gray-200 rounded-md flex flex-col">
                     <span>{message?.bot}</span>
                     <span className="flex justify-end text-[0.5rem] text-gray-600">
                       {message?.time}
