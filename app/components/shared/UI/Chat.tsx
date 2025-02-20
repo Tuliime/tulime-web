@@ -403,7 +403,7 @@ export const Chat = () => {
           <div key={index}>
             {message?.user && (
               <div className=" w-full flex justify-end mt-1">
-                <div className=" flex flex-col justify-center gap-2 w-[80%]">
+                <div className=" flex flex-col justify-center gap-3 w-[80%]">
                   <div className=" w-full flex justify-end">
                     <div className=" w-7 h-7 flex items-center justify-center rounded-full bg-orange-600 text-white">
                       <span>D</span>
@@ -425,7 +425,7 @@ export const Chat = () => {
             )}
             {message?.bot && (
               <>
-                <div className=" flex flex-col gap-2 w-[80%]">
+                <div className=" flex flex-col gap-3 w-[80%]">
                   {/* <span>🤖</span> */}
                   <div className=" w-7 h-7 flex items-center justify-center rounded-full bg-gray-200">
                     <svg
@@ -440,7 +440,24 @@ export const Chat = () => {
                     </svg>
                   </div>
                   <div className="bot-bubble px-1 py-1 bg-gray-200 rounded-md flex flex-col">
-                    <span>{message?.bot}</span>
+                    <span>
+                      {message?.bot}{" "}
+                      {/* <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M4 4H20V16H5.17L4 17.17V4Z"
+                          stroke="black"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg> */}
+                    </span>
                     <span className="flex justify-end text-[0.5rem] text-gray-600">
                       {message?.time}
                     </span>
